@@ -4,7 +4,7 @@
 <h1>You Should Read</h1>
 {% for blog in blogs %}
 
- <p> <strong>{{blog.user.full_name}}</strong> {% if blog.need %}
+ <p style="color:red"> <strong>{{blog.user.full_name}}</strong> {% if blog.need %}
 Needs <strong>{{blog.blog_blood_group}}</strong> Blood </p>Contact: {{blog.user.contact}} Near: {{blog.location}}
 {%else%}
     <p>publishes this blog from {{user.location}}</p>
