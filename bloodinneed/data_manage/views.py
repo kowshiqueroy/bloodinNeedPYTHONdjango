@@ -33,7 +33,7 @@ def donor_list(request):
 
    context={}
 
-   donor_list = Donor.objects.all().order_by('blood_group')
+   donor_list = Donor.objects.filter(is_donor=True).order_by('blood_group')
    context['donor_list']= donor_list
    donor_find = DonorFindForm(request.POST)
    context['form']= donor_find
