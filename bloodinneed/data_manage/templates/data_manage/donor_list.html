@@ -1,0 +1,20 @@
+{% extends 'temp.html' %}
+{% block content %}
+
+<h1>Donor</h1>
+{% for donor in donor_list %}
+
+    {{donor.full_name}} <br>
+{{donor.blood_group}}<br>
+{{donor.contact}}
+<br>
+{{donor.location}} <br><p>---</p>
+
+{% endfor %}
+
+
+
+
+
+
+    {% endblock %}

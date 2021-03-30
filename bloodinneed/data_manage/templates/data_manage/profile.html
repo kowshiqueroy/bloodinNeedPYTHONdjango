@@ -1,0 +1,34 @@
+{% extends 'temp.html' %}
+{% block content %}
+
+{% csrf_token %}
+<p>Full Name: {{user.full_name}}</p>
+<p>Contact: {{user.contact}}</p>
+<p>Location: {{user.location}}</p>
+<p>User Name: {{user.username}}
+    <p>Blood Group: {{user.blood_group}}</p>
+{% if  user.is_donor %}
+<p>You are a Donor</p>
+{%else %}<p>You are not a Donor. Be one. <a href="{% url 'update'%}">Update Profile</a> </p>
+{% endif %}
+
+
+
+
+<center>
+<h1>Related to your blood group</h1>
+{% for blog in blog_blood %}
+
+    <p> <strong>{{blog.user.full_name}}</strong> {% if blog.need %}
+Needs <strong>{{blog.blog_blood_group}}</strong> Blood </p>Contact: {{blog.user.contact}} Near: {{blog.location}}
+{%else%}
+publishes this blog
+{% endif %}<br>
+   <p>posted on {{blog.date}}</p> <br>
+    <h3>{{blog.content}}</h3>
+
+<p>-------------------------------------------</p>
+{% endfor %}
+    </center>
+
+{% endblock %}

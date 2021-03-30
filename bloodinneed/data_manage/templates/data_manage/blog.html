@@ -1,0 +1,18 @@
+{% extends 'temp.html' %}
+{% block content %}
+<center>
+<h1>You Should Read</h1>
+{% for blog in blogs %}
+
+ <p> <strong>{{blog.user.full_name}}</strong> {% if blog.need %}
+Needs <strong>{{blog.blog_blood_group}}</strong> Blood </p>Contact: {{blog.user.contact}} Near: {{blog.location}}
+{%else%}
+    <p>publishes this blog from {{user.location}}</p>
+{% endif %}<br>
+   <p>posted on {{blog.date}}</p> <br>
+    <h3>{{blog.content}}</h3>
+
+<p>-------------------------------------------</p>
+{% endfor %}
+    </center>
+ {% endblock %}
