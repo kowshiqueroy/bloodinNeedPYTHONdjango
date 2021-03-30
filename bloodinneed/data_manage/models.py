@@ -19,3 +19,8 @@ class Blog (models.Model):
    location= models.CharField(max_length=200, default=" ")
    blog_blood_group = models.CharField(max_length=10, null=False, blank=False, default="BG")
    user= models.ForeignKey(Donor,null=False, blank=False, on_delete=models.CASCADE)
+
+
+
+class DonorFind(models.Model):
+   find= models.CharField(max_length=200, default="")

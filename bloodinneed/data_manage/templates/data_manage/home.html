@@ -1,5 +1,10 @@
 {% extends 'temp.html' %}
 {% block content %}
-
+<h1>Welcome to the Blood In Need Website</h1>
+<p>Developed with Python Django (SQLlite)</p>
+<h2>Be a Donor, Read health blogs, Find Blood Donor.</h2><br><br>
+<h1><a href="{% url 'signup' %}">Signup</a></h1>
+<h1><a href="{% url 'login' %}">Login</a></h1>
+<h1><a href="{% url 'blog'  %}">View Blogs/Blood Need</a></h1>
 
 {% endblock %}

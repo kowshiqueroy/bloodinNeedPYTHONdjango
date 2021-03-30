@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from django.shortcuts import render
 from django.views.generic import DetailView
 
-from .forms import DonorCreationForm, UserAuthenticationForm, BlogForm
+from .forms import DonorCreationForm, UserAuthenticationForm, BlogForm,  DonorFindForm
 from .models import Donor, Blog
 
 
@@ -35,6 +35,24 @@ def donor_list(request):
 
    donor_list = Donor.objects.all().order_by('blood_group')
    context['donor_list']= donor_list
+   donor_find = DonorFindForm(request.POST)
+   context['form']= donor_find
+
+
+   if request.method=="POST":
+
+       if donor_find.is_valid():
+           donor_find = donor_find.save(commit=False)
+           choice=request.POST['find']
+           donor_list = Donor.objects.filter(blood_group=choice).order_by('full_name')
+           context['donor_list']=donor_list
+           if not choice:
+               donor_list = Donor.objects.all().order_by('blood_group')
+               context['donor_list'] = donor_list
+
+           return render(request, 'data_manage/donor_list.html',context=context)
+
+
 
 
 
@@ -193,6 +211,10 @@ def update(request):
         context['form'] = form
 
     return render(request, 'data_manage/update.html', context=context)
+
+
+
+
 
 
 

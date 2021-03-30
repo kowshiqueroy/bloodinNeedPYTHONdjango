@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.auth import authenticate
-from .models import Donor, Blog
+from .models import Donor, Blog, DonorFind
 from django import forms
 
 
@@ -74,5 +74,15 @@ class BlogForm(forms.ModelForm):
             'need',
             'location',
             'blog_blood_group'
+        )
+
+
+class DonorFindForm(forms.ModelForm):
+    find= forms.CharField(required=False,help_text='Blood group')
+
+    class Meta:
+        model = DonorFind
+        fields = (
+            'find',
         )
 
