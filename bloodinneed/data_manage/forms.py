@@ -52,7 +52,7 @@ class DonorUpdate(forms.ModelForm):
         fields = (
             'full_name',
             'contact',
-            'username',
+
             'is_donor',
             'location',
             'blood_group'
