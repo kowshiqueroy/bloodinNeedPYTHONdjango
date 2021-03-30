@@ -13,6 +13,7 @@ class DonorCreationForm(UserCreationForm):
     username = forms.CharField(required=True,max_length=100, help_text='Required.')
     is_donor = forms.BooleanField(required=False,help_text='Select if you want to be a donor.')
     blood_group = forms.CharField(required=True,max_length=10, help_text='Required. ex: A+')
+    location= forms.CharField(required=False,max_length=100, help_text='Where you live.')
     class Meta:
         model= Donor
         fields=(

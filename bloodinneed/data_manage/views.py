@@ -32,19 +32,19 @@ def blog(request):
 def donor_list(request):
 
    context={}
-
    donor_list = Donor.objects.filter(is_donor=True).order_by('blood_group')
    context['donor_list']= donor_list
    donor_find = DonorFindForm(request.POST)
    context['form']= donor_find
-
 
    if request.method=="POST":
 
        if donor_find.is_valid():
            donor_find = donor_find.save(commit=False)
            choice=request.POST['find']
-           donor_list = Donor.objects.filter(blood_group=choice).order_by('full_name')
+           location = choice
+           donor_list = Donor.objects.filter(blood_group=choice ).order_by('full_name') or Donor.objects.filter(location = choice).order_by('full_name') or Donor.objects.filter(full_name = choice).order_by('full_name')
+
            context['donor_list']=donor_list
            if not choice:
                donor_list = Donor.objects.all().order_by('blood_group')

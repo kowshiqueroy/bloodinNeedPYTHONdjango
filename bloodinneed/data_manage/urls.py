@@ -13,5 +13,4 @@ urlpatterns = [
     path('logout_view/', logout_view, name='logout_view'),
     path('donor/', donor_list, name='donor'),
 
-
 ]
