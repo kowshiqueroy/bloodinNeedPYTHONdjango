@@ -11,9 +11,9 @@ class DonorCreationForm(UserCreationForm):
     full_name = forms.CharField(required=True,max_length=100, help_text='Required.')
     contact = forms.CharField(required=True,max_length=100, help_text='Required.')
     username = forms.CharField(required=True,max_length=100, help_text='Required.')
-    is_donor = forms.BooleanField(required=False,help_text='Select if you want to be a donor.')
-    blood_group = forms.CharField(required=True,max_length=10, help_text='Required. ex: A+')
-    location= forms.CharField(required=False,max_length=100, help_text='Where you live.')
+    is_donor = forms.BooleanField(label='Are you a donor?',required=False,help_text='Select if you want to be a donor.')
+    blood_group = forms.CharField(required=True,max_length=10, help_text='Required. ex: A+/O+')
+    location= forms.CharField(required=False,max_length=100, help_text='Where you live?')
     class Meta:
         model= Donor
         fields=(
@@ -66,8 +66,8 @@ class DonorUpdate(forms.ModelForm):
 class BlogForm(forms.ModelForm):
     content = forms.CharField(required=True,max_length=1000, help_text='Blood group/Details/Text.')
     location = forms.CharField( max_length=200, help_text='Hospital Location if you need Blood.')
-    need = forms.BooleanField( required=False,help_text='Select if you need Blood.')
-    blog_blood_group = forms.CharField(required=False, help_text='Tell if you need Blood. ex: A+')
+    need = forms.BooleanField(label='Need Blood?', required=False,help_text='Select if you need Blood.')
+    blog_blood_group = forms.CharField(label='Needed blood Group',required=False, help_text='Tell if you need Blood. ex: A+')
     class Meta:
         model= Blog
         fields=(
