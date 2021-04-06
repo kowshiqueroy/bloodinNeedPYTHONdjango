@@ -25,7 +25,7 @@ SECRET_KEY = 'df^-lhpx(%kg=-$mx=els@n#i%)^efos78p(yl%y8rp*-y^812'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['2818f01bfdb9.ngrok.io']
 
 
 # Application definition

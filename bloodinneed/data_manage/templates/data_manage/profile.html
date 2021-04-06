@@ -1,23 +1,57 @@
 {% extends 'temp.html' %}
 {% block content %}
 
+
+
+
+
+
+
+
+
+
+
+
+<section class="indent-1">
+    <!-- Section 1 -->
+    <section>
+
+    </section>
+
+    <!-- Section 2 -->
+    <section>
+        <div>
+
+
+
 {% csrf_token %}
 <div class="border border-primary bg-info" align="center">
-<p>Full Name: {{user.full_name}}</p>
-<p>Contact: {{user.contact}}</p>
-<p>Location: {{user.location}}</p>
-<p>User Name: {{user.username}}
-    <p>Blood Group: {{user.blood_group}}</p>
+    <div style="background color: red" class="p-3 mb-2 bg-danger text-white"><h2>Profile</h2></div>
+<h1 style="color:white">Full Name: {{user.full_name}}</h1>
+<h1>Contact: {{user.contact}}</h1>
+<h1>Location: {{user.location}}</h1>
+<h1>User Name: {{user.username}}
+    <h1>Blood Group: {{user.blood_group}}</h1>
 {% if  user.is_donor %}
-<p>You are a Donor</p>
-{%else %}<p>You are not a Donor. Be one. <a href="{% url 'update'%}">Update Profile</a> </p>
+<h1>You are a Donor</h1>
+{%else %}<h1>You are not a Donor. Be one. <a href="{% url 'update'%}">Update Profile</a> </h1>
 {% endif %}
 
 </div>
 
 
-<center>
-<h1>Related to your blood group</h1>
+
+
+        </div>
+
+    </section>
+
+     <section>
+
+    </section>
+
+
+  <center>  <h1 style="background-color: red; color: white">Related to your blood group</h1></center>
 {% for blog in blog_blood %}
 <div class="border border-primary bg-warning" align="center">
     <p> <strong>{{blog.user.full_name}}</strong> {% if blog.need %}
@@ -25,11 +59,28 @@ Needs <strong>{{blog.blog_blood_group}}</strong> Blood </p>Contact: {{blog.user.
 {%else%}
 publishes this blog
 {% endif %}<br>
-   <p>posted on {{blog.date}}</p> <br>
+   <p>posted on {{blog.date}}</p>
     <h3>{{blog.content}}</h3>
 
 </div>
+    <br>
+    <br>
 {% endfor %}
-    </center>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% endblock %}

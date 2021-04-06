@@ -12,7 +12,7 @@
     <!-- Section 2 -->
     <section>
 
-        <div class="p-3 mb-2 bg-secondary text-white">
+        <div class="p-3 mb-2 bg-secondary ">
 
             <form method="POST">
 
@@ -21,7 +21,7 @@
             {% for field in form %}
                 <p>
                  <h1>   {{ field.label_tag }}</h1>
-                    {{ field }}
+                <p style="color: black"> {{ field }} </p>
 
                     {% if field.help_text %}
 
