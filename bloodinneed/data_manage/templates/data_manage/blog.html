@@ -3,7 +3,7 @@
 <center>
 <h1>You Should Read</h1>
 {% for blog in blogs %}
-
+<div class="border border-primary bg-info" align="center">
  <p style="color:blue"> <strong>{{blog.user.full_name}}</strong> {% if blog.need %}
 Needs <strong>{{blog.blog_blood_group}}</strong> Blood </p>Contact: {{blog.user.contact}} Near: {{blog.location}}
 {%else%}
@@ -11,8 +11,7 @@ Needs <strong>{{blog.blog_blood_group}}</strong> Blood </p>Contact: {{blog.user.
 {% endif %}<br>
    <p>posted on {{blog.date}}</p> <br>
     <h3>{{blog.content}}</h3>
-
-<p>-------------------------------------------</p>
+</div> <br>
 {% endfor %}
     </center>
  {% endblock %}

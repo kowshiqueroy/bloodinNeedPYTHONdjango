@@ -2,6 +2,7 @@
 {% block content %}
 
 {% csrf_token %}
+<div class="border border-primary bg-info" align="center">
 <p>Full Name: {{user.full_name}}</p>
 <p>Contact: {{user.contact}}</p>
 <p>Location: {{user.location}}</p>
@@ -12,13 +13,13 @@
 {%else %}<p>You are not a Donor. Be one. <a href="{% url 'update'%}">Update Profile</a> </p>
 {% endif %}
 
-
+</div>
 
 
 <center>
 <h1>Related to your blood group</h1>
 {% for blog in blog_blood %}
-
+<div class="border border-primary bg-warning" align="center">
     <p> <strong>{{blog.user.full_name}}</strong> {% if blog.need %}
 Needs <strong>{{blog.blog_blood_group}}</strong> Blood </p>Contact: {{blog.user.contact}} Near: {{blog.location}}
 {%else%}
@@ -27,7 +28,7 @@ publishes this blog
    <p>posted on {{blog.date}}</p> <br>
     <h3>{{blog.content}}</h3>
 
-<p>-------------------------------------------</p>
+</div>
 {% endfor %}
     </center>
 

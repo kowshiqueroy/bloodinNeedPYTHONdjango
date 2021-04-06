@@ -3,16 +3,37 @@
 
 
 
-<form method="POST">
 
 
+
+
+<section class="indent-1">
+    <!-- Section 1 -->
+    <section>
+        <div></div>
+        <div></div>
+    </section>
+
+    <!-- Section 2 -->
+    <section>
+        <div>
+
+
+
+
+
+
+            <form method="POST">
+
+<div class="p-3 mb-2 bg-secondary text-white">
+    <span></span>
 
     {% csrf_token %}
             {% for field in form %}
 
                 <p>
 
-                    {{ field.label_tag }}
+    <h1>{{ field.label_tag }}</h1>
                     {{ field }}
 
                     {% if field.help_text %}
@@ -30,10 +51,21 @@
                 </p>
 
             {% endfor %}
-    <button class="btn btn-outline-primary" type="submit">Submit</button>
+    </div>
+    <button class="btn btn-primary btn-lg" type="submit">Submit</button>
 </form>
 
 
 
+
+
+
+
+
+
+        </div>
+        <div></div>
+    </section>
+</section>
 
 {% endblock %}

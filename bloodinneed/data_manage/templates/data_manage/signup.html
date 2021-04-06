@@ -2,14 +2,28 @@
 {% block content %}
 
 
-<form  method="POST">
+
+
+
+
+<section class="indent-1">
+    <!-- Section 1 -->
+    <section>
+
+    </section>
+
+    <!-- Section 2 -->
+    <section>
+        <div class="p-3 mb-2 bg-secondary text-white">
+
+       <form  method="POST">
 
  {% csrf_token %}
             {% for field in form %}
 
                 <p>
 
-                    {{ field.label_tag }}
+           <h1>{{ field.label_tag }}</h1>
                     {{ field }}
 
                     {% if field.help_text %}
@@ -28,15 +42,29 @@
 
             {% endfor %}
             {% block create_or_update %}
-                <button class="btn btn-outline-primary" type="submit">Register</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
                 <!--      <input type="submit" value="Register">-->
+           <br>
                 <p>
                     Already have an account?
-                    <a href="{% url 'login' %}">Sign in</a>.
+                    <a class="btn btn-primary btn-lg" href="{% url 'login' %}">Sign in</a>.
                 </p>
       {% endblock %}
 
 </form>
+
+
+
+
+
+
+
+
+        </div>
+
+    </section>
+</section>
+
 
 
 

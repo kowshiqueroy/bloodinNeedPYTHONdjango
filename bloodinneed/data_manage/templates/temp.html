@@ -1,7 +1,8 @@
+
+
+
 <!DOCTYPE html>
-
 {% load static %}
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,11 +14,21 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>BloodInNeed</title>
+
+
+<style>
+    section { border:0px solid red; padding:10px; overflow:hidden; }
+    section > section { float:left; }
+    .indent-1 { padding-left:120px; }
+</style>
+
+
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div>
-
+<img src="{% static 'bloodinneed/images/binlogo.png' %}" class="img-fluid" alt="..." width="30" height="50">
             <a style="float: right;" class="navbar-brand" href="{% url 'blog' %}">Blood in Need</a>
         </div>
 
@@ -38,12 +49,15 @@
 	    </div>
       </div>
     </nav>
-<div class="jumbotron text-center">
-    <center><br><br>
+
+
     {% block content %}
 
 
 
-    {% endblock %}</center></div>
+    {% endblock %}
+
+
+
 </body>
 </html>
